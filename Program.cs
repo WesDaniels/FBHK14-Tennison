@@ -60,12 +60,11 @@ class Program
             double nPi = Math.Round(Pi + (Pu * Pw),6);
             if (nPi >= 1)
             {
-                double chance = Math.Pow(Ps,T-wins);
-                return chance;
+                nPi = 1;
             }
             if (nPi <= 0)
             {
-                return Pr;
+                nPi = 0;
             }
             winWin = Calc(T, Ps, Pr, nPi, Pu, Pw, Pd, Pl, wins + 1, loss);
         }
@@ -76,12 +75,11 @@ class Program
             double nPi = Math.Round(Pi - (Pd * Pl),6);
             if (nPi >= 1)
             {
-                double chance = Math.Pow(Ps, T - wins);
-                return chance;
+                nPi = 1;
             }
             if (nPi <= 0)
             {
-                return Pr;
+                nPi = 0;
             }
             lossWin = Calc(T, Ps, Pr, nPi, Pu, Pw, Pd, Pl, wins, loss + 1);
             result += Math.Round(((1- recursive) * lossWin),6);
